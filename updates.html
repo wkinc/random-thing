@@ -6,13 +6,22 @@
 </head>
 <body>
 
+<div class="container">
+  <a href="index.html" class="back">← back</a>
+
+  <h1>Updates</h1>
+
+  <!-- THIS is required -->
+  <div id="posts" class="grid"></div>
+</div>
+
 <script>
 fetch("posts.json")
   .then(res => res.json())
   .then(data => {
     const container = document.getElementById("posts");
 
-    data.reverse().forEach(post => {
+    data.slice().reverse().forEach(post => {
       const div = document.createElement("div");
       div.className = "card";
 
@@ -24,6 +33,11 @@ fetch("posts.json")
 
       container.appendChild(div);
     });
+  })
+  .catch(err => {
+    document.getElementById("posts").innerHTML =
+      "<p>Could not load posts.</p>";
+    console.error(err);
   });
 </script>
 
