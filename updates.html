@@ -6,23 +6,26 @@
 </head>
 <body>
 
-<div class="container">
-  <a href="index.html" class="back">← back</a>
+<script>
+fetch("posts.json")
+  .then(res => res.json())
+  .then(data => {
+    const container = document.getElementById("posts");
 
-  <h1>Updates</h1>
+    data.reverse().forEach(post => {
+      const div = document.createElement("div");
+      div.className = "card";
 
-  <div class="grid">
-    <div class="card">
-      <h2>Day 1</h2>
-      <p>Started building this site. It finally feels like something personal.</p>
-    </div>
+      div.innerHTML = `
+        <h2>${post.title}</h2>
+        <small>${post.date}</small>
+        <p>${post.content}</p>
+      `;
 
-    <div class="card">
-      <h2>Late Night Thought</h2>
-      <p>Some ideas only make sense when it’s quiet enough.</p>
-    </div>
-  </div>
-</div>
+      container.appendChild(div);
+    });
+  });
+</script>
 
 </body>
 </html>
