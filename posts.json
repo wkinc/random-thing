@@ -18,8 +18,15 @@
 
   {
     "title" : "Day 4",
-    "content" : "try modelling, not going great",
+    "content" : "try 3d modelling, not going great",
     "date": "2026-07-23"
+  },
+
+  {
+    "title" : "Day 5",
+    "content": "3d modelling is a lot of cubes and boolean",
+    "date" : "2026-07-24"
+
   }
 
 ]
